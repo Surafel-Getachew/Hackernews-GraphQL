@@ -1,0 +1,11 @@
+{
+  "name": "hackernews-GraphQL",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3",
+    "prisma": "^1.34.10",
+    "prisma-client-lib": "^1.34.10"
+  }
+}
