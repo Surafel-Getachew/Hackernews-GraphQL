@@ -1,4 +1,4 @@
-const links = (parent,args,context,info) => {
+const links = (parent,args,context) => {
     return context.prisma.user({id:parent.id}).links()
 }
 

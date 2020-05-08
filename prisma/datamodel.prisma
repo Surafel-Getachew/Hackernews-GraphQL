@@ -14,5 +14,3 @@ type User {
   password: String!
   links: [Link!]!
 }
-
-// https://eu1.prisma.sh/surafel/hackernews-GraphQL/dev/_admin

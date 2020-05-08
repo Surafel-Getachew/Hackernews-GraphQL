@@ -1,9 +1,3 @@
-
-type Query {
-    info: String!
-    feed: [Link!]!
-}
-
 type Link {
     id:ID!
     description: String!
@@ -11,6 +5,16 @@ type Link {
     postedBy:User
 }
 
+type Query {
+    info: String!
+    feed: [Link!]!
+}
+
+
+type AuthPayload {
+    token:String
+    user:User
+}
 type User {
     id:ID!
     name:String!
@@ -18,14 +22,10 @@ type User {
     links:[Link!]!
 }
 
-type AuthPayload {
-    token:String
-    user:User
-}
 
 
 type Mutation {
     post(url: String!, description: String!): Link!
-    signup(email:String!,password:String!,name:!String):AuthPayload!
-    login(email:String!,password:String!):AuthPayload!
+    signup(email:String!,password:String!,name:String!):AuthPayload
+    login(email:String!,password:String!):AuthPayload
 }

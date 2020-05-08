@@ -22,6 +22,6 @@ const server = new GraphQLServer({ typeDefs, resolvers, context: request => {
     ...request,
     prisma,
   }
-} });
+}, });
 
 server.start(() => console.log("server is up and running"));
