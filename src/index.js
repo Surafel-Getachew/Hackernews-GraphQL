@@ -4,13 +4,12 @@ const {prisma} = require("./generated/prisma-client")
 const typeDefs = "./schema.graphql"
 
 
+
 // 2
 const resolvers = {
   Query: {
     info: () => "This is the API of a Hackernews Clone",
-    feed: (root,args,context,ingo) => {
-      return context.prisma.links()
-    }
+    
   },
   Mutation: {
       post:(root,args,context) => {
@@ -24,6 +23,11 @@ const resolvers = {
 };
 
 // 3
-const server = new GraphQLServer({ typeDefs, resolvers, context: {prisma} });
+const server = new GraphQLServer({ typeDefs, resolvers, context: request => {
+  return {
+    ...request,
+    prisma,
+  }
+} });
 
 server.start(() => console.log("server is up and running"));
